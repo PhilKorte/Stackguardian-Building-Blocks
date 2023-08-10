@@ -8,7 +8,7 @@ variable "sg_workflow_group" {
   description = "StackGuardian Workflow Group name"
   nullable    = false
 }
-variable "customer_id" {
+variable "workspace_id" {
   type        = string
   description = "meshcloud Customer ID"
   nullable    = false
