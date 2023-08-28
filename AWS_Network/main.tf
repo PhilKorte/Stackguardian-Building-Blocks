@@ -11,7 +11,7 @@ chmod +x sg-cli
 if grep -qi 'Stack name not unique' output.txt
 then
   echo "Stack Name: ${var.workspace_id}_${var.project_id}_${var.description} already exists. Running APPLY on existing Stack"
-  ./sg-cli stack apply --org ${var.sg_organization} --workflow-group ${var.sg_workflow_group} --stack-id ${var.cuworkspace_idstomer_id}_${var.project_id}_${var.description} --output-json --wait > output.txt
+  ./sg-cli stack apply --org ${var.sg_organization} --workflow-group ${var.sg_workflow_group} --stack-id ${var.workspace_id}_${var.project_id}_${var.description} --output-json --wait > output.txt
 fi
 
 cat output.txt
