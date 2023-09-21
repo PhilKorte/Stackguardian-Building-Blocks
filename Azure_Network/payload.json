@@ -202,8 +202,8 @@
                         "data": {
                             "clientID": "${secret::Azure_Client_ID}",
                             "gwSize": "Standard_B2s",
-                            "description": "${workflow::Azure_Networks.test1.aws-ipam-reservation-VRfL.outputs.description.value}",
-                            "cidr_block": "${workflow::Azure_Networks.test1.aws-ipam-reservation-VRfL.outputs.cidr.value}",
+                            "description": "${reference::template-group.1.outputs.description.value}",
+                            "cidr_block": "${reference::template-group.1.outputs.cidr.value}",
                             "directoryID": "${secret::Azure_Tenant_ID}",
                             "secret": "${secret::Azure_Client_Secret}",
                             "subscriptionID": "304f4cb6-09e0-4b4b-82b7-a109f5cc5985"
