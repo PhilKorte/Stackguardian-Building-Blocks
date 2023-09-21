@@ -1,7 +1,7 @@
 {
     "ResourceName": "test-stack-cli",
     "TemplatesConfig": {
-        "templateGroupId": "/rheinenergie/AWS_Network:4",
+        "templateGroupId": "/rheinenergie/AWS_Networks:3",
         "templates": [
             {
                 "ResourceName": "aws-iam-ipam-role",
@@ -36,7 +36,9 @@
                     "iacInputData": {
                         "schemaType": "RAW_JSON",
                         "data": {
-                            "policies": ["arn:aws:iam::aws:policy/AmazonEC2FullAccess"],
+                            "policies": [
+                                "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+                            ],
                             "accountID": "708080821523"
                         }
                     }
@@ -62,7 +64,8 @@
                         "ERRORED": []
                     }
                 }
-            }, {
+            },
+            {
                 "ResourceName": "aws-ipam-reservation",
                 "Description": "IPAM reservation for new network",
                 "Tags": [],
@@ -130,7 +133,8 @@
                         }
                     }
                 }
-            }, {
+            },
+            {
                 "ResourceName": "aws-iam-avx-role",
                 "Description": "Role to deploy vpc and Aviatrix iam Role",
                 "Tags": [],
@@ -163,7 +167,8 @@
                         "schemaType": "RAW_JSON",
                         "data": {
                             "policies": [
-                                "arn:aws:iam::aws:policy/IAMFullAccess", "arn:aws:iam::aws:policy/AmazonVPCFullAccess"
+                                "arn:aws:iam::aws:policy/IAMFullAccess",
+                                "arn:aws:iam::aws:policy/AmazonVPCFullAccess"
                             ],
                             "accountID": "109808114703"
                         }
@@ -197,7 +202,8 @@
                         }
                     }
                 }
-            }, {
+            },
+            {
                 "ResourceName": "aws-network",
                 "Description": "new aws network with Aviatrix Gateway",
                 "Tags": [],
@@ -219,19 +225,22 @@
                             "varName": "AWS_DEFAULT_REGION"
                         },
                         "kind": "PLAIN_TEXT"
-                    }, {
+                    },
+                    {
                         "config": {
                             "secretId": "/secrets/Aviatrix_Controller_IP",
                             "varName": "AVIATRIX_CONTROLLER_IP"
                         },
                         "kind": "VAULT_SECRET"
-                    }, {
+                    },
+                    {
                         "config": {
                             "secretId": "/secrets/Aviatrix_Controller_Username",
                             "varName": "AVIATRIX_USERNAME"
                         },
                         "kind": "VAULT_SECRET"
-                    }, {
+                    },
+                    {
                         "config": {
                             "secretId": "/secrets/Aviatrix_Controller_Password",
                             "varName": "AVIATRIX_PASSWORD"
