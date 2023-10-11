@@ -1,0 +1,180 @@
+{
+    "ResourceName": "test-stack-cli",
+    "TemplatesConfig": {
+        "templateGroupId": "/rheinenergie/GCP_Network:4",
+        "templates": [
+            {
+                "ResourceName": "aws-iam-ipam-role",
+                "Description": "",
+                "Tags": [],
+                "Approvers": [],
+                "DeploymentPlatformConfig": [
+                    {
+                        "config": {
+                            "profileName": "AWS",
+                            "integrationId": "/integrations/AWS"
+                        },
+                        "kind": "AWS_RBAC"
+                    }
+                ],
+                "WfType": "TERRAFORM",
+                "EnvironmentVariables": [
+                    {
+                        "config": {
+                            "textValue": "eu-central-1",
+                            "varName": "AWS_DEFAULT_REGION"
+                        },
+                        "kind": "PLAIN_TEXT"
+                    }
+                ],
+                "VCSConfig": {
+                    "iacVCSConfig": {
+                        "iacTemplate": "/rheinenergie/aws-iam-role",
+                        "iacTemplateId": "/rheinenergie/aws-iam-role:2",
+                        "useMarketplaceTemplate": true
+                    },
+                    "iacInputData": {
+                        "schemaType": "RAW_JSON",
+                        "data": {
+                            "policies": [
+                                "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+                            ],
+                            "accountID": "708080821523"
+                        }
+                    }
+                },
+                "TerraformConfig": {
+                    "terraformVersion": "1.3.6",
+                    "approvalPreApply": false,
+                    "managedTerraformState": true,
+                    "driftCheck": false
+                },
+                "WfStepsConfig": [],
+                "MiniSteps": {
+                    "notifications": {
+                        "email": {
+                            "APPROVAL_REQUIRED": [],
+                            "CANCELLED": [],
+                            "COMPLETED": [],
+                            "ERRORED": []
+                        }
+                    },
+                    "wfChaining": {
+                        "COMPLETED": [],
+                        "ERRORED": []
+                    }
+                }
+            },
+            {
+                "ResourceName": "aws-ipam-reservation",
+                "Description": "",
+                "Tags": [],
+                "Approvers": [],
+                "DeploymentPlatformConfig": [
+                    {
+                        "config": {
+                            "profileName": "AWS",
+                            "integrationId": "/integrations/AWS"
+                        },
+                        "kind": "AWS_RBAC"
+                    }
+                ],
+                "WfType": "TERRAFORM",
+                "EnvironmentVariables": [
+                    {
+                        "config": {
+                            "textValue": "eu-central-1",
+                            "varName": "AWS_DEFAULT_REGION"
+                        },
+                        "kind": "PLAIN_TEXT"
+                    }
+                ],
+                "VCSConfig": {
+                    "iacVCSConfig": {
+                        "iacTemplate": "/rheinenergie/aws-ipam-reservation",
+                        "iacTemplateId": "/rheinenergie/aws-ipam-reservation:2",
+                        "useMarketplaceTemplate": true
+                    },
+                    "iacInputData": {
+                        "schemaType": "RAW_JSON",
+                        "data": {
+                            "external_id": "${workflow::GCP_Networks.test.aws-iam-role-nXqD.outputs.externalID.value}",
+                            "shortDescription": "test",
+                            "networkSize": 26,
+                            "role_arn": "${workflow::GCP_Networks.test.aws-iam-role-nXqD.outputs.roleARN.value}",
+                            "platform": "gcp"
+                        }
+                    }
+                },
+                "TerraformConfig": {
+                    "terraformVersion": "1.3.6",
+                    "approvalPreApply": false,
+                    "managedTerraformState": true,
+                    "driftCheck": false
+                },
+                "WfStepsConfig": [],
+                "MiniSteps": {
+                    "notifications": {
+                        "email": {
+                            "APPROVAL_REQUIRED": [],
+                            "CANCELLED": [],
+                            "COMPLETED": [],
+                            "ERRORED": []
+                        }
+                    },
+                    "wfChaining": {
+                        "COMPLETED": [],
+                        "ERRORED": []
+                    }
+                }
+            },
+            {
+                "ResourceName": "gcp-network",
+                "Description": "",
+                "Tags": [],
+                "Approvers": [],
+                "DeploymentPlatformConfig": [],
+                "WfType": "TERRAFORM",
+                "EnvironmentVariables": [],
+                "VCSConfig": {
+                    "iacVCSConfig": {
+                        "iacTemplate": "/rheinenergie/gcp-network",
+                        "iacTemplateId": "/rheinenergie/gcp-network:2",
+                        "useMarketplaceTemplate": true
+                    },
+                    "iacInputData": {
+                        "schemaType": "RAW_JSON",
+                        "data": {
+                            "description": "${workflow::GCP_Networks.test.aws-ipam-reservation-Sc1N.outputs.description.value}",
+                            "ha": false,
+                            "cidr_block": "${workflow::GCP_Networks.test.aws-ipam-reservation-Sc1N.outputs.cidr.value}",
+                            "account": "pro-sharedservices-dev",
+                            "gwSize": "n1-standard-1"
+                        }
+                    }
+                },
+                "TerraformConfig": {
+                    "terraformVersion": "1.3.6",
+                    "approvalPreApply": false,
+                    "managedTerraformState": true,
+                    "driftCheck": false
+                },
+                "WfStepsConfig": [],
+                "MiniSteps": {
+                    "notifications": {
+                        "email": {
+                            "APPROVAL_REQUIRED": [],
+                            "CANCELLED": [],
+                            "COMPLETED": [],
+                            "ERRORED": []
+                        }
+                    },
+                    "wfChaining": {
+                        "COMPLETED": [],
+                        "ERRORED": []
+                    }
+                }
+            }
+        ]
+    }
+}
