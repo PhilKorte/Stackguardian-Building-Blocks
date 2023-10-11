@@ -4,7 +4,7 @@
         "templateGroupId": "/rheinenergie/GCP_Network:4",
         "templates": [
             {
-                "ResourceName": "aws-iam-ipam-role",
+                "ResourceName": "aws-iam-role-nXqD",
                 "Description": "",
                 "Tags": [],
                 "Approvers": [],
