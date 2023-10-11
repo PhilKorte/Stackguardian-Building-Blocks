@@ -1,10 +1,10 @@
 {
     "ResourceName": "test-stack-cli",
     "TemplatesConfig": {
-        "templateGroupId": "/rheinenergie/GCP_Network:4",
+        "templateGroupId": "/rheinenergie/GCP_Network:5",
         "templates": [
             {
-                "ResourceName": "aws-iam-role-zxLg",
+                "ResourceName": "aws-iam-role-4e1q",
                 "Description": "",
                 "Tags": [],
                 "Approvers": [],
@@ -30,7 +30,7 @@
                 "VCSConfig": {
                     "iacVCSConfig": {
                         "iacTemplate": "/rheinenergie/aws-iam-role",
-                        "iacTemplateId": "/rheinenergie/aws-iam-role:2",
+                        "iacTemplateId": "/rheinenergie/aws-iam-role:3",
                         "useMarketplaceTemplate": true
                     },
                     "iacInputData": {
