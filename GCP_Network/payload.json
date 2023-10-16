@@ -98,10 +98,10 @@
                     "iacInputData": {
                         "schemaType": "RAW_JSON",
                         "data": {
-                            "external_id": "${workflow::GCP_Networks.test.aws-iam-role-nXqD.outputs.externalID.value}",
+                            "external_id": "${reference::template-group.0.outputs.externalID.value}",
                             "shortDescription": "test",
                             "networkSize": 26,
-                            "role_arn": "${workflow::GCP_Networks.test.aws-iam-role-nXqD.outputs.roleARN.value}",
+                            "role_arn": "${reference::template-group.0.outputs.roleARN.value}",
                             "platform": "gcp"
                         }
                     }
@@ -145,9 +145,9 @@
                     "iacInputData": {
                         "schemaType": "RAW_JSON",
                         "data": {
-                            "description": "${workflow::GCP_Networks.test.aws-ipam-reservation-Sc1N.outputs.description.value}",
+                            "description": "${reference::template-group.1.outputs.description.value}",
                             "ha": false,
-                            "cidr_block": "${workflow::GCP_Networks.test.aws-ipam-reservation-Sc1N.outputs.cidr.value}",
+                            "cidr_block": "${reference::template-group.1.outputs.cidr.value}",
                             "account": "pro-sharedservices-dev",
                             "gwSize": "n1-standard-1"
                         }
