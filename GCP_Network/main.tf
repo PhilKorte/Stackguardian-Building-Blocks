@@ -1,8 +1,6 @@
 resource "null_resource" "sg_integration" {
 provisioner "local-exec" {
     command = <<EOF
-apk add curl
-apk add jq
 curl -o sg-cli https://raw.githubusercontent.com/StackGuardian/sg-cli/main/shell/sg-cli
 chmod +x sg-cli
 
