@@ -18,7 +18,8 @@ resource "stackguardian_stack" "network_stack" {
         "templateGroupId": "/rheinenergie/AWS_Network:4",
         "templates": [
             {
-                "ResourceName": "aws-iam-ipam-role", 
+                "ResourceName": "aws-iam-ipam-role",
+                "id": 0 
                 "Description": "Role for accessing AWS IPAM",
                 "Tags": [],
                 "Approvers": [],
@@ -81,6 +82,7 @@ resource "stackguardian_stack" "network_stack" {
             },
             {
                 "ResourceName": "aws-ipam-reservation",
+                "id":1
                 "Description": "IPAM reservation for new network",
                 "Tags": [],
                 "Approvers": [],
@@ -150,6 +152,7 @@ resource "stackguardian_stack" "network_stack" {
             },
             {
                 "ResourceName": "aws-iam-avx-role",
+                "id":2
                 "Description": "Role to deploy vpc and Aviatrix iam Role",
                 "Tags": [],
                 "Approvers": [],
@@ -219,6 +222,7 @@ resource "stackguardian_stack" "network_stack" {
             },
             {
                 "ResourceName": "aws-network",
+                "id":3
                 "Description": "new aws network with Aviatrix Gateway",
                 "Tags": [],
                 "Approvers": [],
