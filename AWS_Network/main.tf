@@ -10,7 +10,7 @@ terraform {
 provider "stackguardian" {}
 
 resource "stackguardian_stack" "network_stack" {
-  wfgroup = var.sg_workflow_group
+  wfgrp = var.sg_workflow_group
   data = jsonencode(
 {
     "ResourceName": "${var.workspace_id}_${var.project_id}_${var.description}",
