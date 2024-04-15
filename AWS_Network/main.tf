@@ -111,10 +111,10 @@ resource "stackguardian_stack" "network_stack" {
                     "iacInputData": {
                         "schemaType": "RAW_JSON",
                         "data": {
-                            "external_id": "${reference::template-group.0.outputs.externalID.value}",
+                            "external_id": "$\\{reference::template-group.0.outputs.externalID.value}",
                             "shortDescription": "${var.description}",
                             "networkSize": var.size,
-                            "role_arn": "${reference::template-group.0.outputs.roleARN.value}",
+                            "role_arn": "$\\{reference::template-group.0.outputs.roleARN.value}",
                             "platform": "AWS"
                         }
                     }
@@ -270,13 +270,13 @@ resource "stackguardian_stack" "network_stack" {
                     "iacInputData": {
                         "schemaType": "RAW_JSON",
                         "data": {
-                            "role_arn": "${reference::template-group.2.outputs.roleARN.value}",
+                            "role_arn": "$\\{reference::template-group.2.outputs.roleARN.value}",
                             "gwSize": "${var.gateway}",
                             "transit": "aws-transit-02",
-                            "description": "${reference::template-group.1.outputs.description.value}",
+                            "description": "$\\{reference::template-group.1.outputs.description.value}",
                             "ha": "false",
-                            "external_id": "${reference::template-group.2.outputs.externalID.value}",
-                            "cidr_block": "${reference::template-group.1.outputs.cidr.value}",
+                            "external_id": "$\\{reference::template-group.2.outputs.externalID.value}",
+                            "cidr_block": "$\\{reference::template-group.1.outputs.cidr.value}",
                             "region": "eu-central-1",
                             "account": "${var.account}"
                         }
