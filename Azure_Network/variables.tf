@@ -3,6 +3,7 @@ variable "sg_organization" {
   description = "StackGuardian Organization name"
   nullable    = false
 }
+
 variable "sg_workflow_group" {
   type        = string
   description = "StackGuardian Workflow Group name"
