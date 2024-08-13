@@ -1,5 +1,5 @@
 resource "null_resource" "sg_integration" {
-provisioner "local-exec" {
+  provisioner "local-exec" {
     command = <<EOF
 curl -o sg-cli https://raw.githubusercontent.com/StackGuardian/sg-cli/main/sg-cli
 chmod +x sg-cli
