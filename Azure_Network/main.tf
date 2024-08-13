@@ -61,7 +61,7 @@ resource "stackguardian_stack" "network" {
                     }
                 },
                 "TerraformConfig": {
-                    "terraformVersion": "1.3.6",
+                    "terraformVersion": "1.5.7",
                     "approvalPreApply": false,
                     "managedTerraformState": true,
                     "driftCheck": false
@@ -115,16 +115,16 @@ resource "stackguardian_stack" "network" {
                     "iacInputData": {
                         "schemaType": "RAW_JSON",
                         "data": {
-                            "external_id": "${reference::template-group.0.outputs.externalID.value}",
+                            "external_id": "$${reference::template-group.0.outputs.externalID.value}",
                             "shortDescription": var.description,
                             "networkSize": var.size,
-                            "role_arn": "${reference::template-group.0.outputs.roleARN.value}",
+                            "role_arn": "$${reference::template-group.0.outputs.roleARN.value}",
                             "platform": "AZ"
                         }
                     }
                 },
                 "TerraformConfig": {
-                    "terraformVersion": "1.3.6",
+                    "terraformVersion": "1.5.7",
                     "approvalPreApply": false,
                     "managedTerraformState": true,
                     "driftCheck": false
@@ -219,18 +219,18 @@ resource "stackguardian_stack" "network" {
                     "iacInputData": {
                         "schemaType": "RAW_JSON",
                         "data": {
-                            "clientID": "${secret::Azure_Client_ID}",
+                            "clientID": "$${secret::Azure_Client_ID}",
                             "gwSize": var.gateway,
-                            "description": "${reference::template-group.1.outputs.description.value}",
-                            "cidr_block": "${reference::template-group.1.outputs.cidr.value}",
-                            "directoryID": "${secret::Azure_Tenant_ID}",
-                            "secret": "${secret::Azure_Client_Secret}",
+                            "description": "$${reference::template-group.1.outputs.description.value}",
+                            "cidr_block": "$${reference::template-group.1.outputs.cidr.value}",
+                            "directoryID": "$${secret::Azure_Tenant_ID}",
+                            "secret": "$${secret::Azure_Client_Secret}",
                             "subscriptionID": var.account
                         }
                     }
                 },
                 "TerraformConfig": {
-                    "terraformVersion": "1.3.6",
+                    "terraformVersion": "1.5.7",
                     "approvalPreApply": false,
                     "managedTerraformState": true,
                     "driftCheck": false
