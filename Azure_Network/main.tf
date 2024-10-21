@@ -207,6 +207,13 @@ resource "stackguardian_stack" "network" {
                   "varName" : "AVIATRIX_PASSWORD"
                 },
                 "kind" : "VAULT_SECRET"
+              },
+              {
+                "config" : {
+                  "textValue" : "true",
+                  "varName" : "ARM_SKIP_PROVIDER_REGISTRATION"
+                },
+                "kind" : "PLAIN_TEXT"
               }
             ],
             "VCSConfig" : {
@@ -282,6 +289,8 @@ chmod +x sg-cli
 cat output.txt
 rm output.txt
 EOF
+
+  depends_on = [stackguardian_stack.network]
   }
 
   provisioner "local-exec" {
@@ -295,7 +304,6 @@ chmod +x sg-cli
 cat output.txt
 rm output.txt
 EOF
-  }
-
+  
   depends_on = [stackguardian_stack.network]
 }
