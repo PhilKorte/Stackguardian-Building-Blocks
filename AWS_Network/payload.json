@@ -255,7 +255,7 @@
                 ],
                 "VCSConfig": {
                     "iacVCSConfig": {
-                        "iacTemplateId": "/rheinenergie/aws-network:13",
+                        "iacTemplateId": "/rheinenergie/aws-network:14",
                         "useMarketplaceTemplate": true
                     },
                     "iacInputData": {
