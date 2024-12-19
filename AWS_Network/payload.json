@@ -171,7 +171,8 @@
                         "data": {
                             "policies": [
                                 "arn:aws:iam::aws:policy/IAMFullAccess",
-                                "arn:aws:iam::aws:policy/AmazonVPCFullAccess"
+                                "arn:aws:iam::aws:policy/AmazonVPCFullAccess",
+                                "arn:aws:iam::aws:policy/AmazonRoute53ResolverFullAccess"
                             ],
                             "accountID": "109808114703"
                         }
