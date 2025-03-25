@@ -1,7 +1,7 @@
 {
     "ResourceName": "test-stack-cli",
     "TemplatesConfig": {
-        "templateGroupId": "/rheinenergie/AWS_Network:4",
+        "templateGroupId": "/rheinenergie/AWS_Network:10",
         "templates": [
             {
                 "ResourceName": "aws-iam-ipam-role",
